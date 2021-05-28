@@ -26,7 +26,6 @@
                 <NavLink @click="getAllCompanies">All Companies</NavLink>
             </router-link>
             <router-link to="/addCompany">Add Company</router-link>
-            <a href="#">Link 3</a>
         </div>
     </div>
 

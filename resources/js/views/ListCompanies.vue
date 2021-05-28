@@ -36,7 +36,7 @@
             </td>
         </tr>
     </table>
-    <pagination v-model="page" :records="500" :per-page="2" @paginate="myCallback"/>
+    <!-- <pagination v-model="page" :records="500" :per-page="2" @paginate="myCallback"/> -->
 </div>
 </template>
 
@@ -44,13 +44,13 @@
 import axios from "axios";
 import moment from 'moment';
 import Home from "./Home";
-import Pagination from 'v-pagination-3';
+// import Pagination from 'v-pagination-3';
 
 export default {
     name: 'ListCompanies',
     components: {
         Home,
-        Pagination
+        // Pagination
     },
     methods: {
         currentDateTime(company_created_time) {
