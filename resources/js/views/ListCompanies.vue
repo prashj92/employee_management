@@ -58,7 +58,8 @@ export default {
         },
         deleteCompany(id) {
 
-            let response = axios.delete(`http://127.0.0.1:8080/api/deleteCompany/${id}`)
+            //let response = axios.delete(`http://127.0.0.1:8080/api/deleteCompany/${id}`)
+            let response = axios.delete(`http://192.168.42.34:24/api/deleteCompany/${id}`)
                 .then((response) => {
                     if (response.status == 200) {
                         let i = this.companies.map(item => item.id).indexOf(id); // find index of your object
@@ -74,7 +75,7 @@ export default {
         }
     },
     created() {
-        axios.get("http://127.0.0.1:8080/api/getAllCompanies")
+        axios.get("http://192.168.42.34:24/api/getAllCompanies")
             .then((response) => {
 
                 if (response.status == 200) {

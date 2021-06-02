@@ -70,7 +70,7 @@ export default {
                 address: this.address,
                 city: this.city,
             };
-            await axios.post("http://127.0.0.1:8080/api/addCandidate", candidateData)
+            await axios.post("http://192.168.42.34:24/api/addCandidate", candidateData)
                 .then(response => {
                     if (response.status == 200) {
                         this.$router.push({name:'ListCandidates'});

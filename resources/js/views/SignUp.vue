@@ -42,7 +42,8 @@ export default {
         async register() 
         {
             // console.warn("Testing Purpose and:",this.name,this.email,this.password);
-            let result = await axios.post('http://127.0.0.1:8080/api/register',{
+            // let result = await axios.post('http://127.0.0.1:8080/api/register',{
+            let result = await axios.post('http://192.168.42.34:24/api/register',{
               name:this.name,
               email:this.email,
               password:this.password

@@ -16787,7 +16787,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   city: _this.city
                 };
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().post("http://127.0.0.1:8080/api/addCandidate", candidateData).then(function (response) {
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().post("http://192.168.42.34:24/api/addCandidate", candidateData).then(function (response) {
                   if (response.status == 200) {
                     _this.$router.push({
                       name: 'ListCandidates'
@@ -16862,7 +16862,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://127.0.0.1:8080/api/addCompany", {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://192.168.42.34:24/api/addCompany", {
                   company_name: _this.company_name,
                   company_email: _this.company_email,
                   contact_person: _this.contact_person,
@@ -16951,7 +16951,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8080/api/editCompany/".concat(this.$route.params.id)).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://192.168.42.34:24/api/editCompany/".concat(this.$route.params.id)).then(function (response) {
       if (response.status == 200) {
         //console.log(response)
         _this.company = response.data;
@@ -16969,7 +16969,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://127.0.0.1:8080/api/updateCompany/".concat(_this2.$route.params.id), _this2.company).then(function (response) {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://192.168.42.34:24/api/updateCompany/".concat(_this2.$route.params.id), _this2.company).then(function (response) {
                   if (response.status == 200) {
                     _this2.$router.push({
                       name: 'ListCompanies'
@@ -17032,7 +17032,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://127.0.0.1:8080/api/logout");
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://192.168.42.34:24/api/logout");
 
               case 2:
                 result = _context.sent;
@@ -17064,7 +17064,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 decode_data = JSON.parse(storage_data);
                 user_id = decode_data.user_id;
                 _context2.next = 5;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8080/api/getProfile/".concat(user_id)).then(function (response) {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://192.168.42.34:24/api/getProfile/".concat(user_id)).then(function (response) {
                   localStorage.setItem("userDetails", response.data);
                 });
 
@@ -17127,7 +17127,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8080/api/getAllCandidates").then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://192.168.42.34:24/api/getAllCandidates").then(function (response) {
       if (response.status == 200) {
         console.warn("DATA: ", response);
         var candidatesData = response.data;
@@ -17172,7 +17172,8 @@ __webpack_require__.r(__webpack_exports__);
     deleteCompany: function deleteCompany(id) {
       var _this = this;
 
-      var response = axios__WEBPACK_IMPORTED_MODULE_0___default().delete("http://127.0.0.1:8080/api/deleteCompany/".concat(id)).then(function (response) {
+      //let response = axios.delete(`http://127.0.0.1:8080/api/deleteCompany/${id}`)
+      var response = axios__WEBPACK_IMPORTED_MODULE_0___default().delete("http://192.168.42.34:24/api/deleteCompany/".concat(id)).then(function (response) {
         if (response.status == 200) {
           var i = _this.companies.map(function (item) {
             return item.id;
@@ -17193,7 +17194,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8080/api/getAllCompanies").then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://192.168.42.34:24/api/getAllCompanies").then(function (response) {
       if (response.status == 200) {
         var companiesData = response.data;
         _this2.companies = companiesData;
@@ -17234,8 +17235,9 @@ __webpack_require__.r(__webpack_exports__);
       var loginData = {
         email: this.email,
         password: this.password
-      };
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8080/api/login', loginData).then(function (response) {
+      }; //axios.post('http://127.0.0.1:8080/api/login', loginData)
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://192.168.42.34:24/api/login', loginData).then(function (response) {
         if (response.status == 200) {
           localStorage.setItem("userInfo", JSON.stringify(response.data));
 
@@ -17316,9 +17318,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 storage_data = localStorage.getItem("userInfo");
                 decode_data = JSON.parse(storage_data);
-                user_id = decode_data.user_id;
+                user_id = decode_data.user_id; //let response = await axios.post(`http://127.0.0.1:8080/api/updateProfile/${user_id}`, {
+
                 _context.next = 5;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://127.0.0.1:8080/api/updateProfile/".concat(user_id), {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://192.168.42.34:24/api/updateProfile/".concat(user_id), {
                   name: _this.name,
                   email: _this.email,
                   password: _this.password
@@ -17346,8 +17349,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var storage_data = localStorage.getItem("userInfo");
     var decode_data = JSON.parse(storage_data);
-    var user_id = decode_data.user_id;
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8080/api/getProfile/".concat(user_id)).then(function (response) {
+    var user_id = decode_data.user_id; //axios.get(`http://127.0.0.1:8080/api/getProfile/${user_id}`)
+
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://192.168.42.34:24/api/getProfile/".concat(user_id)).then(function (response) {
       var userData = response.data;
       _this2.name = userData.name;
       _this2.email = userData.email;
@@ -17409,7 +17413,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post('http://127.0.0.1:8080/api/register', {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post('http://192.168.42.34:24/api/register', {
                   name: _this.name,
                   email: _this.email,
                   password: _this.password

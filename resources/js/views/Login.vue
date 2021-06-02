@@ -40,7 +40,8 @@ export default {
                 email: this.email,
                 password: this.password,
             };
-            axios.post('http://127.0.0.1:8080/api/login', loginData)
+            //axios.post('http://127.0.0.1:8080/api/login', loginData)
+            axios.post('http://192.168.42.34:24/api/login', loginData)
                 .then(response => {
                     if (response.status == 200) {
                         localStorage.setItem("userInfo", JSON.stringify(response.data));

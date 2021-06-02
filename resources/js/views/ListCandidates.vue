@@ -59,7 +59,7 @@ export default {
         },
     },
     created() {
-        axios.get("http://127.0.0.1:8080/api/getAllCandidates")
+        axios.get("http://192.168.42.34:24/api/getAllCandidates")
             .then(response => {
 
                 if (response.status == 200) {

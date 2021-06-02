@@ -42,7 +42,7 @@ export default {
     name: "Home",
     methods: {
         async logout() {
-            let result = await axios.post("http://127.0.0.1:8080/api/logout");
+            let result = await axios.post("http://192.168.42.34:24/api/logout");
             if (result.status == 200) {
                 localStorage.setItem("userInfo", "");
                 this.$router.push({ name: "Login" });
@@ -52,7 +52,7 @@ export default {
             let storage_data = localStorage.getItem("userInfo");
             let decode_data = JSON.parse(storage_data);
             let user_id = decode_data.user_id;
-            await axios.get(`http://127.0.0.1:8080/api/getProfile/${user_id}`)
+            await axios.get(`http://192.168.42.34:24/api/getProfile/${user_id}`)
                 .then((response) => {
                     localStorage.setItem("userDetails", response.data);
                 });

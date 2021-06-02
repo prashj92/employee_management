@@ -55,7 +55,8 @@ export default {
     },
     methods:{
         async addCompany() {
-            let response = await axios.post("http://127.0.0.1:8080/api/addCompany", {
+            // let response = await axios.post("http://127.0.0.1:8080/api/addCompany", {
+            let response = await axios.post("http://192.168.42.34:24/api/addCompany", {
                 company_name: this.company_name,
                 company_email: this.company_email,
                 contact_person: this.contact_person,

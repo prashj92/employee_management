@@ -52,7 +52,7 @@ export default {
         }
     },
     created() {
-        axios.get(`http://127.0.0.1:8080/api/editCompany/${this.$route.params.id}`)
+        axios.get(`http://192.168.42.34:24/api/editCompany/${this.$route.params.id}`)
             .then((response) => {
                 if (response.status == 200) {
                     //console.log(response)
@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         async updateCompany() {
-            let response = await axios.post(`http://127.0.0.1:8080/api/updateCompany/${this.$route.params.id}`, this.company)
+            let response = await axios.post(`http://192.168.42.34:24/api/updateCompany/${this.$route.params.id}`, this.company)
                             .then((response) => {
                                 if (response.status == 200) {
                                     this.$router.push({name: 'ListCompanies'});

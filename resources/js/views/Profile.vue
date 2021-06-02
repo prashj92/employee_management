@@ -45,7 +45,8 @@ export default {
             let decode_data = JSON.parse(storage_data);
             let user_id = decode_data.user_id;
 
-            let response = await axios.post(`http://127.0.0.1:8080/api/updateProfile/${user_id}`, {
+            //let response = await axios.post(`http://127.0.0.1:8080/api/updateProfile/${user_id}`, {
+            let response = await axios.post(`http://192.168.42.34:24/api/updateProfile/${user_id}`, {
                 name: this.name,
                 email: this.email,
                 password: this.password,
@@ -60,7 +61,8 @@ export default {
         let storage_data = localStorage.getItem("userInfo");
         let decode_data = JSON.parse(storage_data);
         let user_id = decode_data.user_id;
-        axios.get(`http://127.0.0.1:8080/api/getProfile/${user_id}`)
+        //axios.get(`http://127.0.0.1:8080/api/getProfile/${user_id}`)
+        axios.get(`http://192.168.42.34:24/api/getProfile/${user_id}`)
             .then((response) => {
                 let userData = response.data;
                 this.name = userData.name;
