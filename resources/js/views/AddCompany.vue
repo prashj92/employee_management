@@ -49,7 +49,7 @@ export default {
             contact_person: '',
             mobile: '',
             profile: '',
-            address: '',
+            address: '', 
             city: ''
         }
     },
