@@ -6,19 +6,19 @@
 
     <div class="dropdown">
         <button class="dropbtn">
-            Candidates
+            Candidates Section
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            
+            <router-link to="/listCandidates">All Candidate</router-link>
+            <router-link to="/addCandidate">Add Candidate</router-link>
         </div>
     </div>
 
     <div class="dropdown">
         <button class="dropbtn">
-            Companies
+            Companies Corner
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">

@@ -5,6 +5,8 @@ import Profile from './views/Profile.vue';
 import AddCompany from './views/AddCompany.vue';
 import ListCompanies from './views/ListCompanies.vue';
 import EditCompany from './views/EditCompany.vue';
+import AddCandidate from './views/AddCandidate.vue';
+import ListCandidates from './views/ListCandidates.vue';
 
 import { createRouter,createWebHistory } from 'vue-router';
 
@@ -43,7 +45,17 @@ const routes = [
         name:'ListCompanies',
         component: ListCompanies,
         path: '/listCompanies'
-    }
+    },
+    {
+        name:'AddCandidate',
+        component: AddCandidate,
+        path: '/addCandidate'
+    },
+    {
+        name:'ListCandidates',
+        component: ListCandidates,
+        path: '/listCandidates'
+    },
 ];
 
 const router = createRouter({

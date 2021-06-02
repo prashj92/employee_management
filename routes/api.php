@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\CandidatesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::get('getAllCompanies', [PagesController::class, 'getAllCompanies']);
 Route::delete('deleteCompany/{id}', [PagesController::class, 'deleteCompany']);
 Route::get('editCompany/{id}', [PagesController::class, 'editCompany']);
 Route::post('updateCompany/{id}', [PagesController::class, 'updateCompany']);
+Route::post('updateProfile/{id}', [PassportAuthController::class, 'updateProfile']);
+
+Route::post('addCandidate', [CandidatesController::class, 'addCandidate']);
+Route::get('getAllCandidates', [CandidatesController::class, 'getAllCandidates']);
 
 Route::group(['prefix' => 'pages'], function () {
     

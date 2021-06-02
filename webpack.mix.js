@@ -16,9 +16,14 @@ mix.js('resources/js/app.js', 'public/js').vue()
      //
 ]);
 
-mix.options({
-    hmrOptions: {
-        host: 'localhost',  // mysite.test is my local domain used for testing
-        port: 8080,
+mix.webpackConfig({
+    output: {
+        publicPath: '/public/',
     }
  });
+// mix.options({
+//     hmrOptions: {
+//         host: 'localhost',  // mysite.test is my local domain used for testing
+//         port: 8080,
+//     }
+//  });

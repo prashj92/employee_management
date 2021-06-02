@@ -2,6 +2,7 @@
 <Home ></Home>
 <form style="border: 1px solid #ccc; margin-left:250px; width: 50%; margin-top: 50px;">
     <div class="container" >
+        <span v-if="message != ''">{{ message }}</span>
         <h1>Update Profile</h1>
         <hr />
 
@@ -33,9 +34,27 @@ export default {
         return {
             name: '',
             email: '',
+            password: '',
+            message: '',
         }
     },
     methods: {
+
+        async updateProfile() {
+            let storage_data = localStorage.getItem("userInfo");
+            let decode_data = JSON.parse(storage_data);
+            let user_id = decode_data.user_id;
+
+            let response = await axios.post(`http://127.0.0.1:8080/api/updateProfile/${user_id}`, {
+                name: this.name,
+                email: this.email,
+                password: this.password,
+            });
+            // console.warn(response);
+            if (response.status == 200) {
+                this.message = "Profile has been updated successfully"
+            }
+        }
     },
     created() {
         let storage_data = localStorage.getItem("userInfo");
